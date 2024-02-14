@@ -9,6 +9,16 @@ function play() {
      const randomAlphabet=getARandomAlphabet();
      const display=document.getElementById('display');
      display.innerText=randomAlphabet;
+     
+
+     const color=addBackgroundColorById(randomAlphabet);
+     console.log(color)
+}
+
+function addBackgroundColorById(alphabet) {
+    const element = document.getElementById(alphabet);
+    element.classList.add("bg-red-800")
+    
 }
 
 function getARandomAlphabet() {
@@ -21,6 +31,9 @@ function getARandomAlphabet() {
     const index =Math.round(randomNumber);
 
     const alphabet =alphabets[index];
+    // setBackgroundColorById(alphabet);
     return alphabet;
+    
+
     
 }
