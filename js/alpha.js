@@ -12,7 +12,7 @@ function play() {
      
 
      const color=addBackgroundColorById(randomAlphabet);
-     console.log(color)
+    
 }
 
 function addBackgroundColorById(alphabet) {
@@ -21,11 +21,38 @@ function addBackgroundColorById(alphabet) {
     
 }
 
+function removeBackgroundColorById(alphabet) {
+    const element = document.getElementById(alphabet);
+    element.classList.remove("bg-red-800")
+    
+}
+
+function handleKeyboardButtonPress(event) {
+    const playerPressed =event.key;
+    
+
+    const displayAlphabetElement =document.getElementById('display');
+    const displayAlphabet = displayAlphabetElement.innerText;
+    const expectedAlphabet = displayAlphabet.toLowerCase();
+    
+
+    if(playerPressed === expectedAlphabet){
+       
+        removeBackgroundColorById(expectedAlphabet);
+        play();
+
+    }
+    else{
+        console.log('you missed ')
+    }
+}
+document.addEventListener('keyup',handleKeyboardButtonPress);
+
 function getARandomAlphabet() {
     // create alphabet Array
     const alphabetString ='abcdefghijklmnopqrstuvwxyz';
     const alphabets =alphabetString.split('');
-    console.log(alphabets)
+    
     // get random index
     const randomNumber = Math.random()*25;
     const index =Math.round(randomNumber);
