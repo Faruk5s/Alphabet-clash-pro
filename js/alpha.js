@@ -41,9 +41,23 @@ function handleKeyboardButtonPress(event) {
         removeBackgroundColorById(expectedAlphabet);
         play();
 
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText =currentScoreElement.innerText;
+        const currentScore =parseInt(currentScoreText);
+        // console.log(currentScore);
+
+        const newScore = currentScore +1;
+        currentScoreElement.innerText= newScore;
+
     }
     else{
-        console.log('you missed ')
+        console.log('you missed ');
+        const currentLifeElement = document.getElementById('life-score');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife =parseInt(currentLifeText);
+
+        const newLife = currentLife -1;
+        currentLifeElement.innerText =newLife;
     }
 }
 document.addEventListener('keyup',handleKeyboardButtonPress);
